@@ -11,6 +11,8 @@
       neofetch = "fastfetch";
       sudo = "sudo ";
       v = "vim ";
+      gp = "git push";
+      gc = "git commit";
     };
     # https://www.reddit.com/r/NixOS/comments/1lvptx5/comment/n28t5wm/
     # While the idea is kinda cool, it does in fact clutter the terminal e.g. when
