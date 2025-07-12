@@ -30,17 +30,28 @@
     isNormalUser = true;
     description = vars.userName;
     shell = pkgs.zsh;
+    linger = true;
   };
 
-  home-manager.users.${vars.userName}.programs = {
-    zsh.shellAliases = {
-      ssh = "ssh.exe";
-      ssh-add = "ssh-add.exe";
-    };
-    git = {
-      extraConfig = {
-        core.sshCommand = "ssh.exe";
+  home-manager.users.${vars.userName} = {
+    programs = {
+      zsh.shellAliases = {
+        ssh = "ssh.exe";
+        ssh-add = "ssh-add.exe";
       };
+      git = {
+        extraConfig = {
+          core.sshCommand = "ssh.exe";
+        };
+      };
+    };
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
     };
   };
 
