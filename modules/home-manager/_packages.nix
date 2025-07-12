@@ -15,16 +15,18 @@
         duf
         gdu
         genact
+        go
         imagemagick
-        openssl
+        inetutils
         jq
+        nixfmt-rfc-style
+        openssl
+        pietrasanta-traceroute
         poppler_utils
         qrencode
         tree
         wget
-        inetutils
-        nixfmt-rfc-style
-        go
+        yq-go
       ]
       ++ (
         if builtins.substring 0 3 osConfig.networking.hostName != "svr" then
