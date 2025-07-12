@@ -127,7 +127,10 @@ style = "bg:#500173 fg:#EED4FF"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-home_symbol = "󰋜"
+#home_symbol = "󰋜"
+
+[directory.substitutions]
+"/" = "  "
 
 [hostname]
 ssh_symbol = ""
