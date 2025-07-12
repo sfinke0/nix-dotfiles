@@ -15,7 +15,7 @@
 ################
 
 # Inserts a blank line between shell prompts
-add_newline = true
+add_newline = false
 
 # Maximum time it may take to produce the prompt
 command_timeout = 3000
@@ -51,9 +51,9 @@ command_timeout = 3000
 # Note: Not supported in Powershell
 # @see: https://starship.rs/advanced-config/#enable-right-prompt
 #right_format = """
-#[](bg:transparent fg:#500173)\
+#[](bg:transparent fg:#500173)\
 #$cmd_duration\
-#[](bg:transparent fg:#500173)\
+#[](bg:transparent fg:#500173)\
 #"""
 right_format = """
 $cmd_duration\
@@ -62,10 +62,10 @@ $cmd_duration\
 # Left prompt. This is displayed on the left side of the terminal.
 # Colours (i.e. bg and fg) are always listed from left to right.
 format = """
-[](bg:#transparent fg:#9B00D1)\
+[\u00A0](fg:#FF8C00 bg:#FF8C00)\
 $username\
 $os\
-[](fg:#9B00D1 bg:#500173)\
+[](fg:#FF8C00 bg:#500173)\
 $directory\
 ${custom.pregit}\
 $git_branch\
@@ -98,8 +98,8 @@ $character\
 
 # Exit code indicator
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[](bg:#500173 fg:#9B00D1)[󱇫](bg:#9B00D1 fg:#1A0019)[](fg:#9B00D1 bg:transparent)'
-error_symbol = '[](bg:#500173 fg:#FF003E)[󱇫](bg:#FF003E fg:#300000)[](fg:#FF003E bg:transparent)'
+success_symbol = '[](fg:#500173 bg:#9B00D1)[󱇫](bg:#9B00D1 fg:#1A0019)[](fg:#9B00D1 bg:transparent)'
+error_symbol = '[](fg:#500173 bg:#FF003E)[󱇫](bg:#FF003E fg:#300000)[](fg:#FF003E bg:transparent)'
 format = '$symbol'
 
 # cross-platform way to check if we are in a git repo, takes 200ms
@@ -118,7 +118,7 @@ disabled = true
 
 # Displays a symbol that represents the current operating system
 [os]
-style = "bg:#9B00D1 fg:white"
+style = "bg:#FF8C00 fg:black"
 format = '[$symbol]($style)'
 disabled = false # This doesn't work in pwsh in Webstorm terminal.
 
@@ -128,6 +128,7 @@ style = "bg:#500173 fg:#EED4FF"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
+home_symbol = "󰋜"
 
 [hostname]
 ssh_symbol = ""
@@ -144,7 +145,7 @@ format = '[$time]($style)'
 
 [cmd_duration]
 style = "bg:#500173 fg:bold yellow"
-format = '[](bg:transparent fg:#500173)[took ](bg:#500173 fg:white)[$duration]($style)[](bg:transparent fg:#500173)'
+format = "[](bg:transparent fg:#500173)[took ](bg:#500173 fg:white)[$duration]($style)[\u00A0](bg:#500173 fg:#500173)"
 
 #######################
 #   Version control   #
@@ -154,7 +155,7 @@ format = '[](bg:transparent fg:#500173)[took ](bg:#500173 fg:white)[$duration
 [git_branch]
 symbol = ""
 style = "bg:#30001A fg:#B07BC5" # fg:#9B00D1
-format = '[](fg:#500173 bg:#30001A)[ $symbol](bg:#30001A fg:#9B00D1)[ $branch ]($style)'
+format = '[](fg:#500173 bg:#30001A)[ $symbol](bg:#30001A fg:#9B00D1)[ $branch ]($style)'
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
@@ -185,7 +186,7 @@ modified = ''
 staged = ''
 renamed = '»'
 deleted = '✘'
-format = '([($all_status )($ahead_behind )]($style))[](bg:#30001A fg:#500173)'
+format = '([($all_status )($ahead_behind )]($style))[](fg:#30001A bg:#500173)'
 
 [fossil_branch]
 symbol = ""
@@ -255,7 +256,7 @@ format = '[$symbol](bg:#500173 fg:#EED4FF)[ ($version) ]($style)'
 [golang]
 symbol = ""
 style = "bg:#500173 fg:#C183C1"
-format = '[$symbol](bg:#500173 fg:#EED4FF)[ ($version) ]($style)'
+format = '[ $symbol](bg:#500173 fg:#EED4FF)[ ($version) ]($style)'
 
 [gradle]
 style = "bg:#500173 fg:#C183C1"
