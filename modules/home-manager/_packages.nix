@@ -23,6 +23,7 @@
         openssl
         pietrasanta-traceroute
         poppler_utils
+        pre-commit
         qrencode
         tree
         wget
