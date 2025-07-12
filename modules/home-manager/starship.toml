@@ -62,7 +62,6 @@ $cmd_duration\
 # Left prompt. This is displayed on the left side of the terminal.
 # Colours (i.e. bg and fg) are always listed from left to right.
 format = """
-[\u00A0](fg:#FF8C00 bg:#FF8C00)\
 $username\
 $os\
 [](fg:#FF8C00 bg:#500173)\
@@ -98,8 +97,8 @@ $character\
 
 # Exit code indicator
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[](fg:#500173 bg:#9B00D1)[󱇫](bg:#9B00D1 fg:#1A0019)[](fg:#9B00D1 bg:transparent)'
-error_symbol = '[](fg:#500173 bg:#FF003E)[󱇫](bg:#FF003E fg:#300000)[](fg:#FF003E bg:transparent)'
+success_symbol = '[](fg:#500173 bg:transparent)'
+error_symbol = '[](fg:#500173 bg:#FF003E)[  ](bg:#FF003E fg:#300000)[](fg:#FF003E bg:transparent)'
 format = '$symbol'
 
 # cross-platform way to check if we are in a git repo, takes 200ms
@@ -119,7 +118,7 @@ disabled = true
 # Displays a symbol that represents the current operating system
 [os]
 style = "bg:#FF8C00 fg:black"
-format = '[$symbol]($style)'
+format = '[ $symbol ]($style)'
 disabled = false # This doesn't work in pwsh in Webstorm terminal.
 
 # The current directory
