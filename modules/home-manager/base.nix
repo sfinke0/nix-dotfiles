@@ -27,6 +27,7 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      defaultOptions = ["--reverse"];
     };
     tealdeer = {
       enable = true;
