@@ -8,6 +8,7 @@
     packages =
       with pkgs;
       [
+        ansible
         curl
         dig
         du-dust
@@ -19,6 +20,7 @@
         imagemagick
         inetutils
         jq
+        mr
         nixfmt-rfc-style
         openssl
         pietrasanta-traceroute
