@@ -29,6 +29,7 @@
         qrencode
         tree
         wget
+        wireguard-tools
         yq-go
       ]
       ++ (
