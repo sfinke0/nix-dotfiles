@@ -1,8 +1,12 @@
 {
   pkgs,
+  unstable ? null,
   osConfig,
   ...
 }:
+let
+  unstablePkgs = if unstable != null then unstable.legacyPackages.${pkgs.system} else pkgs;
+in
 {
   home = {
     packages =
@@ -16,7 +20,6 @@
         duf
         gdu
         genact
-        go
         imagemagick
         inetutils
         jq
@@ -31,6 +34,10 @@
         wget
         wireguard-tools
         yq-go
+
+        unstablePkgs.go
+        unstablePkgs.gopls
+        unstablePkgs.golangci-lint
       ]
       ++ (
         if builtins.substring 0 3 osConfig.networking.hostName != "svr" then

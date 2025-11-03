@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     impermanence.url = "github:nix-community/impermanence";
 
     home-manager = {
@@ -59,6 +60,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       nix-darwin,
       ...
     }@inputs:
@@ -75,14 +77,20 @@
       mkNixOSConfig =
         path:
         nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs vars; };
+          specialArgs = {
+            inherit inputs outputs vars;
+            unstable = inputs.nixpkgs-unstable;
+          };
           modules = [ path ];
         };
 
       mkDarwinConfig =
         path:
         nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs outputs vars; };
+          specialArgs = {
+            inherit inputs outputs vars;
+            unstable = inputs.nixpkgs-unstable;
+          };
           modules = [ path ];
         };
     in
