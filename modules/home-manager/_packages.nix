@@ -18,6 +18,7 @@ in
         du-dust
         dua
         duf
+        gcc
         gdu
         genact
         imagemagick
