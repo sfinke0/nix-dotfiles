@@ -58,7 +58,19 @@
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
   security.sudo.wheelNeedsPassword = false;
-  services.vscode-server.enable = true;
+
+  services.vscode-server = {
+    enable = true;
+    # Disable signature verification to fix extension installation on NixOS
+    # NixOS patches the VS Code server binary, which breaks Microsoft's signatures
+    enableFHS = true;
+  };
+
+  # Set environment variable globally for all users
+  environment.sessionVariables = {
+    VSCODE_SKIP_SIGNATURE_VERIFICATION = "1";
+  };
+
   time.timeZone = "Europe/Berlin";
   zramSwap.enable = true;
 
