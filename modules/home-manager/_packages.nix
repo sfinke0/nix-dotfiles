@@ -39,6 +39,10 @@ in
         unstablePkgs.go
         unstablePkgs.gopls
         unstablePkgs.golangci-lint
+        unstablePkgs.gotools
+
+        unstablePkgs.python313
+        unstablePkgs.poetry
       ]
       ++ (
         if builtins.substring 0 3 osConfig.networking.hostName != "svr" then
