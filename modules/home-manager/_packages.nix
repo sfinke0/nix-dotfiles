@@ -36,6 +36,14 @@ in
         wireguard-tools
         yq-go
 
+        unstablePkgs.tailscale
+
+        # typst
+        unstablePkgs.typst
+        roboto
+        font-awesome
+        source-sans-pro
+
         unstablePkgs.go
         unstablePkgs.gopls
         unstablePkgs.golangci-lint
