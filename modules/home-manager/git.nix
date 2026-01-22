@@ -8,7 +8,6 @@
     git = {
       enable = true;
       lfs.enable = true;
-      userName = vars.fullName;
       extraConfig = {
         core = {
           editor = "vim";
@@ -30,7 +29,6 @@
           path = "~/.gitconfig-work";
         };
       };
-      inherit (vars) userEmail;
     };
   };
 
