@@ -55,6 +55,15 @@
     };
   };
 
+  # Tailscale VPN
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
+
+  # Trust the Tailscale network interface
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
   security.sudo.wheelNeedsPassword = false;

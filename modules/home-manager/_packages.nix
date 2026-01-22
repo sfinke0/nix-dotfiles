@@ -36,8 +36,6 @@ in
         wireguard-tools
         yq-go
 
-        unstablePkgs.tailscale
-
         # typst
         unstablePkgs.typst
         roboto
