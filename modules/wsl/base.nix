@@ -31,6 +31,7 @@
     description = vars.userName;
     shell = pkgs.zsh;
     linger = true;
+    extraGroups = [ "docker" ];
   };
 
   home-manager.users.${vars.userName} = {
@@ -50,7 +51,7 @@
   virtualisation.docker = {
     enable = true;
     rootless = {
-      enable = true;
+      enable = false;
       setSocketVariable = true;
     };
   };

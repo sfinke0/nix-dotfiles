@@ -18,6 +18,7 @@ in
         du-dust
         dua
         duf
+        git-filter-repo
         gcc
         gdu
         genact
