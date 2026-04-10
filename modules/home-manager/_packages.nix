@@ -13,6 +13,7 @@ in
       with pkgs;
       [
         ansible
+        age
         curl
         dig
         du-dust
@@ -25,6 +26,7 @@ in
         imagemagick
         inetutils
         jq
+        libwebp
         mr
         nixfmt-rfc-style
         openssl
@@ -50,6 +52,8 @@ in
 
         unstablePkgs.python313
         unstablePkgs.poetry
+
+        unstablePkgs.kanidm
       ]
       ++ (
         if builtins.substring 0 3 osConfig.networking.hostName != "svr" then
