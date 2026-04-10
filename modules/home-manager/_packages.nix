@@ -38,6 +38,8 @@ in
         wget
         wireguard-tools
         yq-go
+        zip
+        _7zz
 
         # typst
         unstablePkgs.typst
