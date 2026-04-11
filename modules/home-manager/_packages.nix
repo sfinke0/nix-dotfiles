@@ -16,7 +16,7 @@ in
         age
         curl
         dig
-        du-dust
+        dust
         dua
         duf
         git-filter-repo
@@ -26,12 +26,13 @@ in
         imagemagick
         inetutils
         jq
+        kanidm_1_9
         libwebp
         mr
         nixfmt-rfc-style
         openssl
         pietrasanta-traceroute
-        poppler_utils
+        poppler-utils
         pre-commit
         qrencode
         tree
@@ -53,9 +54,6 @@ in
         unstablePkgs.gotools
 
         unstablePkgs.python313
-        unstablePkgs.poetry
-
-        unstablePkgs.kanidm
       ]
       ++ (
         if builtins.substring 0 3 osConfig.networking.hostName != "svr" then
