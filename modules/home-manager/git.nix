@@ -8,7 +8,7 @@
     git = {
       enable = true;
       lfs.enable = true;
-      extraConfig = {
+      settings = {
         core = {
           editor = "vim";
         };
@@ -21,14 +21,21 @@
           autoSetupRemote = true;
         };
 
-        # Conditional config based on directory
-        includeIf."gitdir:~/repos/cxt/" = {
-          path = "~/.gitconfig-cxt";
-        };
-        includeIf."gitdir:~/work/" = {
-          path = "~/.gitconfig-work";
-        };
       };
+      includes = [
+        {
+          condition = "gitdir:~/repos/cxt/";
+          path = "~/.gitconfig-cxt";
+        }
+        {
+          condition = "gitdir:~/repos/work/";
+          path = "~/.gitconfig-work";
+        }
+        {
+          condition = "gitdir:~/repos/private/";
+          path = "~/.gitconfig-private";
+        }
+      ];
     };
   };
 
@@ -42,6 +49,12 @@
   home.file.".gitconfig-work".text = ''
     [user]
       email = ${vars.userEmail}
+      name = ${vars.fullName}
+  '';
+
+  home.file.".gitconfig-private".text = ''
+    [user]
+      email = s@fn.ke
       name = ${vars.fullName}
   '';
 }

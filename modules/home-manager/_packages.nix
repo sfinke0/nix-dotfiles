@@ -1,11 +1,13 @@
 {
   pkgs,
+  inputs,
   unstable ? null,
   osConfig,
   ...
 }:
 let
-  unstablePkgs = if unstable != null then unstable.legacyPackages.${pkgs.system} else pkgs;
+  system = pkgs.stdenv.hostPlatform.system;
+  unstablePkgs = if unstable != null then unstable.legacyPackages.${system} else pkgs;
 in
 {
   home = {
@@ -13,6 +15,8 @@ in
       with pkgs;
       [
         ansible
+        python313Packages.mitogen
+        python313Packages.uv
         age
         curl
         dig
@@ -20,6 +24,7 @@ in
         dua
         duf
         git-filter-repo
+        unstablePkgs.glab
         gcc
         gdu
         genact
@@ -27,9 +32,10 @@ in
         inetutils
         jq
         kanidm_1_9
+        libcap
         libwebp
         mr
-        nixfmt-rfc-style
+        nixfmt
         openssl
         pietrasanta-traceroute
         poppler-utils
@@ -53,7 +59,10 @@ in
         unstablePkgs.golangci-lint
         unstablePkgs.gotools
 
-        unstablePkgs.python313
+        unstablePkgs.python314
+
+        inputs.llm-agents.packages.${system}.codex
+        inputs.llm-agents.packages.${system}.codex-acp
       ]
       ++ (
         if builtins.substring 0 3 osConfig.networking.hostName != "svr" then

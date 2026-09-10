@@ -41,7 +41,7 @@
         ssh-add = "ssh-add.exe";
       };
       git = {
-        extraConfig = {
+        settings = {
           core.sshCommand = "ssh.exe";
         };
       };
@@ -74,6 +74,7 @@
     # Disable signature verification to fix extension installation on NixOS
     # NixOS patches the VS Code server binary, which breaks Microsoft's signatures
     enableFHS = true;
+    nodejsPackage = pkgs.nodejs_22;
   };
 
   # Set environment variable globally for all users
